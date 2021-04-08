@@ -11,7 +11,7 @@ namespace TestEventStore.EventSourcing
         public EventStoreService(IConfiguration configuration)
         {
             _connection = EventStoreConnection.Create(
-                new Uri(configuration.GetConnectionString("EventStoreConnection"))
+                configuration.GetConnectionString("EventStoreConnection")
             );
             _connection.ConnectAsync();
         }
